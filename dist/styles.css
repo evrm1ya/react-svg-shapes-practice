@@ -1,21 +1,32 @@
+.shape-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.update-all-shapes {
+  align-self: center;
+}
+
+.shape-box-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 [class$='shape-box'] {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
   width: 250px;
 }
 
 [class$='shape-box'] svg {
   overflow: hidden;
-}
-
-.shape-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
 }
 
 .input-wrapper {

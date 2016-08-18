@@ -13,7 +13,7 @@ const Triangle = React.createClass({
         width='200'
         >
         <polygon
-          fill='#ff5600'
+          fill={this.props.color}
           points={calculateCenteredSvgTrianglePoints(this.props.sideLength)}
           />
       </svg>
