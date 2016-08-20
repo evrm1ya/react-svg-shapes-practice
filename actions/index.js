@@ -8,7 +8,7 @@ export function updateAllShapes(payload) {
   }
 }
 
-export function updateShape(shape, payload) {
+export function updateShape(payload) {
   return {
     type: UPDATE_SHAPE,
     payload

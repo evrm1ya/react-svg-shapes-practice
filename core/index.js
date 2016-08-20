@@ -1,4 +1,5 @@
 import { Map } from 'immutable';
+import setCommonPropsInImmutableMap from '../utils/setCommonPropsInImmutableMap';
 
 export const INITIAL_STATE = Map({
   circle: Map({
@@ -21,9 +22,27 @@ export const newQualityForSingleShape = (state, payload) => {
   return state.setIn([shape, quality], value);
 }
 
+const allShapesColorSetter = (value) => {
+  return setCommonPropsInImmutableMap(shape => shape.set('color', value));
+};
+
+const allShapesDimensionSetter = (value) => {
+  return setCommonPropsInImmutableMap(shape => {
+    if (shape.has('diameter')) {
+      return shape.set('diameter', value);
+    }
+
+    return shape.set('sideLength', value);
+  });
+};
+
 export const newQualityForAllShapes = (state, payload) => {
   const { quality, value } = payload;
 
-  return Map(state.toKeyedSeq().map(shape => shape.set(quality, value)));
+  if (quality === 'dimension') {
+    return allShapesDimensionSetter(value)(state);
+  }
+
+  return allShapesColorSetter(value)(state);
 }
 
