@@ -7,15 +7,23 @@ export function calculateTriangleHeight(sideLength) {
   return Math.round(height);
 }
 
+function equationToString(equation) {
+  return equation.toString();
+}
+
 // constant svg height and width of 200
 // could be more versatile down the road
-export function calculateCenteredSvgTrianglePoints(sideLength) {
+export function calculateCenteredSvgTrianglePoints(sideLength, halfOfSvgWidth) {
   let triangleHeight = calculateTriangleHeight(sideLength);
-  let topPointY = (100 - (triangleHeight / 2)).toString();
-  let baseLeftPointX = (100 - (sideLength / 2)).toString();
-  let baseLeftPointY = (100 + (triangleHeight / 2)).toString();
-  let baseRightPointX = (100 + (sideLength / 2)).toString();
-  let baseRightPointY = (100 + (triangleHeight / 2)).toString();
+  let halfOfTriangleHeight = triangleHeight / 2;
+  let halfOfSideLength = sideLength / 2;
+  let topPointY = equationToString(halfOfSvgWidth - halfOfTriangleHeight);
+  let leftBasePointX = equationToString(halfOfSvgWidth - halfOfSideLength); 
+  let leftBasePointY = equationToString(halfOfSvgWidth + halfOfTriangleHeight);
+  let rightBasePointX = equationToString(halfOfSvgWidth + halfOfSideLength);
+  let rightBasePointY = equationToString(halfOfSvgWidth + halfOfTriangleHeight);
 
-  return `100,${topPointY} ${baseLeftPointX},${baseLeftPointY} ${baseRightPointX},${baseRightPointY}`;
+
+  // topPoint: (x, y) | leftBasePoint: (x, y) | rightBasePoint(x, y)
+  return `100,${topPointY} ${leftBasePointX},${leftBasePointY} ${rightBasePointX},${rightBasePointY}`;
 }
