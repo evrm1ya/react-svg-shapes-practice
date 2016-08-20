@@ -1,7 +1,9 @@
-import { UPDATE_COLOR } from '../actions';
+import { UPDATE_SHAPE, UPDATE_ALL_SHAPES } from '../actions';
+import {
+  newQualityForSingleShape,
+  newQualityForAllShapes
+} from '../core';
 
-function setIn(obj, props = [], value) {
-}
 
 function rootReducer(state = {}, action = {}) {
   if (!action.type) {

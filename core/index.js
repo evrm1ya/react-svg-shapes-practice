@@ -15,9 +15,15 @@ export const INITIAL_STATE = Map({
   })
 });
 
-export const setShapeQuality = (state, payload) => {
+export const newQualityForSingleShape = (state, payload) => {
   const { quality, shape, value } = payload;
 
   return state.setIn([shape, quality], value);
+}
+
+export const newQualityForAllShapes = (state, payload) => {
+  const { quality, value } = payload;
+
+  return Map(state.toKeyedSeq().map(shape => shape.set(quality, value)));
 }
 
