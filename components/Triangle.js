@@ -3,7 +3,8 @@ import { calculateCenteredSvgTrianglePoints } from '../utils/triangle-helpers';
 
 const Triangle = React.createClass({
   propTypes: {
-    sideLength: PropTypes.number
+    fill: PropTypes.string.isRequired,
+    sideLength: PropTypes.number.isRequired
   },
 
   render: function() {
@@ -13,8 +14,8 @@ const Triangle = React.createClass({
         width='200'
         >
         <polygon
-          fill={this.props.color}
-          points={calculateCenteredSvgTrianglePoints(this.props.sideLength)}
+          fill={this.props.fill}
+          points={calculateCenteredSvgTrianglePoints(this.props.sideLength, 100)}
           />
       </svg>
     );
