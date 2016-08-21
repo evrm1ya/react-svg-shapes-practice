@@ -4,7 +4,7 @@ import { calculateCenteredSvgTrianglePoints } from '../utils/triangle-helpers';
 const Triangle = React.createClass({
   propTypes: {
     fill: PropTypes.string.isRequired,
-    sideLength: PropTypes.number.isRequired
+    sideLength: PropTypes.string.isRequired
   },
 
   render: function() {
