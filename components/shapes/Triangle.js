@@ -21,3 +21,4 @@ Triangle.propTypes = {
 };
 
 export default Triangle;
+

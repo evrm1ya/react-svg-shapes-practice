@@ -19,3 +19,4 @@ describe('calculateCenteredSvgTrianglePoints', () => {
     expect(calculateCenteredSvgTrianglePoints(20, 100)).to.equal('100,91.5 90,108.5 110,108.5');
   });
 });
+

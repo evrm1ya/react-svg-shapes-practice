@@ -3,8 +3,8 @@ import {
   UPDATE_SHAPE, 
   UPDATE_ALL_SHAPES 
 } from '../actions';
-import { INITIAL_STATE } from '../core';
 import {
+  INITIAL_STATE,
   newQualityForSingleShape,
   newQualityForAllShapes
 } from '../core';

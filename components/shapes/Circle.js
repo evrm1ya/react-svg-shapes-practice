@@ -24,3 +24,4 @@ Circle.propTypes = {
 };
 
 export default Circle;
+

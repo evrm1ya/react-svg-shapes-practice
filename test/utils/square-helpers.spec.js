@@ -7,3 +7,4 @@ describe('topLeftCorner', () => {
     expect(topLeftCornerOfCenteredSquare(200, 20)).to.equal(90);
   });
 });
+
