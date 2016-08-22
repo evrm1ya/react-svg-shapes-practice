@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import Circle from '../components/Circle';
 import Square from '../components/Square';
 import Triangle from '../components/Triangle';
-import InputWrapper from '../components/InputWrapper';
-import ConnectedCircle from './ConnectedCircle';
 
 const App = React.createClass({
   render: function() {

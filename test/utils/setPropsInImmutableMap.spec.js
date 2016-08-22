@@ -13,7 +13,7 @@ describe('setCommonPropsInImmutableMap', () => {
       return shape.set('sideLength', 200)
     });
 
-    expect(setter(INITIAL_STATE).toJS()).to.eql({
+    expect(setter(INITIAL_STATE.get('shapes')).toJS()).to.eql({
       circle: {
         color: 'blue',
         diameter: 200
