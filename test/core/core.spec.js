@@ -61,20 +61,20 @@ describe('core', () => {
 
       expect(newState.toJS()).to.eql({
         activeShape: 'all',
-          shapes: {
-            circle: {
-              color: 'pink',
-              diameter: 20
-            },
-            square: {
-              color: 'pink',
-              sideLength: 20
-            },
-            triangle: {
-              color: 'pink',
-              sideLength: 20
-            }
+        shapes: {
+          circle: {
+            color: 'pink',
+            diameter: 20
+          },
+          square: {
+            color: 'pink',
+            sideLength: 20
+          },
+          triangle: {
+            color: 'pink',
+            sideLength: 20
           }
+        }
       });
     });
   });
