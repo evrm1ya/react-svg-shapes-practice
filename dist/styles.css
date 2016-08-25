@@ -9,7 +9,7 @@
   align-self: center;
 }
 
-.shape-box-container {
+.connected-shape-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-around;

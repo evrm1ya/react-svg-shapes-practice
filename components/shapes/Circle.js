@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import SVG from '../svg/svg';
 
 const Circle = (props) => {
-  //const { color, diameter } = props.circle;
+  const { color, diameter } = props;
 
   return (
     <div className='circle-shape-box'>
@@ -10,8 +10,8 @@ const Circle = (props) => {
         <circle
           cx='100'
           cy='100'
-          fill={'#e0e0e0'}
-          r={40}
+          fill={color}
+          r={diameter / 2}
           />
       </SVG>
     </div>
