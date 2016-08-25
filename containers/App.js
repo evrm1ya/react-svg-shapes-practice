@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ConnectedCircle from './ConnectedCircle';
-import Circle from '../components/shapes/Circle';
-import Triangle from '../components/shapes/Triangle';
-import Square from '../components/shapes/Square';
+import ConnectedTriangle from './ConnectedTriangle';
+import ConnectedSquare from './ConnectedSquare';
 
 const App = React.createClass({
   render: function() {
@@ -13,9 +12,9 @@ const App = React.createClass({
         <p>React/Redux/Immutable practice</p>
         <div className='shape-container'>
           <ConnectedCircle />
+          <ConnectedSquare />
+          <ConnectedTriangle />
         </div>
-        <Triangle />
-        <Square />
       </div>
     );
   }

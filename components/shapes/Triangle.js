@@ -7,8 +7,8 @@ const Triangle = (props) => {
     <div className='triangle-shape-box'>
       <SVG>
         <polygon
-          fill='red'
-          points={calculateCenteredSvgTrianglePoints(20, 100)}
+          fill={props.color}
+          points={calculateCenteredSvgTrianglePoints(props.sideLength, 100)}
           />
       </SVG>
     </div>
