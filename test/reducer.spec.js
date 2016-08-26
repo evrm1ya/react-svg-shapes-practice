@@ -1,6 +1,7 @@
 import { Map } from 'immutable';
 import { expect } from 'chai';
 import { 
+  TOGGLE_SHAPE_MENU_VISIBILITY,
   setActiveShape,
   updateAllShapes, 
   updateShape 
@@ -22,13 +23,19 @@ const TEST_STATE = Map({
       color: 'red',
       sideLength: 20
     })
-  })
+  }),
+  shapeMenuIsVisible: false
 });
 
 describe('reducer', () => {
   it('handles setting a new active shape', () => {
     const newState = reducer(TEST_STATE, setActiveShape('triangle'));
     expect(newState.get('activeShape')).to.equal('triangle');
+  });
+
+  it('handles toggling the shape menu visibility', () => {
+    const newState = reducer(TEST_STATE, { type: TOGGLE_SHAPE_MENU_VISIBILITY });
+    expect(newState.get('shapeMenuIsVisible')).to.be.true;
   });
 
   it('returns a new state with a quality update to a single shape', () => {
@@ -65,7 +72,8 @@ describe('reducer', () => {
           color: 'pink',
           sideLength: 20
         }
-      }
+      },
+      shapeMenuIsVisible: false
     });
   });
 
@@ -90,7 +98,8 @@ describe('reducer', () => {
           color: 'red',
           sideLength: 80
         }
-      }
+      },
+      shapeMenuIsVisible: false
     });
   });
 });
