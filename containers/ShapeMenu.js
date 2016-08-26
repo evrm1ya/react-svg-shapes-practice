@@ -9,6 +9,7 @@ import ShapeDropdown from '../components/menu/ShapeDropdown';
 
 function mapStateToProps(state) {
   return {
+    activeShape: state.get('activeShape'),
     shapeDropdownIsVisible: state.get('shapeDropdownIsVisible')
   };
 }

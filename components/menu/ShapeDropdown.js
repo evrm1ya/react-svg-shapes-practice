@@ -1,14 +1,17 @@
 import React from 'react';
 
+const shapeUpdateHandler = (fn) => (shape) => (event) => {
+  return fn(shape);
+};
+
 const ShapeDropdown = React.createClass({
   handleDropdownVisibility: function() {
     this.props.handleDropdownVisibility();
   },
 
-  newActiveShape: function(shape) {
-    return function(event) {
-      this.props.setActiveShape(shape);
-    };
+  handleNewShape: function(shape) {
+    let fn = this.props.setActiveShape;
+    return shapeUpdateHandler(fn)(shape);
   },
 
   render: function() {
@@ -24,29 +27,33 @@ const ShapeDropdown = React.createClass({
             type="button"
             onClick={this.handleDropdownVisibility}
             >
-            Dropdown
+            {this.props.activeShape} 
             <span className="caret"></span>
           </button>
+
           <ul className="dropdown-menu">
             <li>
-              <a href="#"
-                onClick={this.newActiveShape('all').bind(this)}
-              >
+              <a href="#" onClick={this.handleNewShape('all')}>
                 All
               </a>
             </li>
+
             <li>
-              <a href="#"
-                onClick={this.newActiveShape('circle').bind(this)}
-              >
-              Circle
+              <a href="#" onClick={this.handleNewShape('circle')}>
+                Circle
               </a>
             </li>
+
             <li>
-              <a href="#">Square</a>
+              <a href="#" onClick={this.handleNewShape('square')}>
+                Square
+              </a>
             </li>
+
             <li>
-              <a href="#">Triangle</a>
+              <a href="#" onClick={this.handleNewShape('triangle')}>
+                Triangle
+              </a>
             </li>
           </ul>
         </div>
