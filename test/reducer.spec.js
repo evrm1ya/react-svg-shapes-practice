@@ -1,7 +1,7 @@
 import { Map } from 'immutable';
 import { expect } from 'chai';
 import { 
-  TOGGLE_SHAPE_MENU_VISIBILITY,
+  TOGGLE_SHAPE_DROPDOWN_VISIBILITY,
   setActiveShape,
   updateAllShapes, 
   updateShape 
@@ -10,6 +10,7 @@ import reducer from '../reducers';
 
 const TEST_STATE = Map({
   activeShape: 'all',
+  shapeDropdownIsVisible: false,
   shapes: Map({
     circle: Map({
       color: 'blue',
@@ -24,7 +25,6 @@ const TEST_STATE = Map({
       sideLength: 20
     })
   }),
-  shapeMenuIsVisible: false
 });
 
 describe('reducer', () => {
@@ -34,8 +34,15 @@ describe('reducer', () => {
   });
 
   it('handles toggling the shape menu visibility', () => {
-    const newState = reducer(TEST_STATE, { type: TOGGLE_SHAPE_MENU_VISIBILITY });
-    expect(newState.get('shapeMenuIsVisible')).to.be.true;
+    const newState = reducer(TEST_STATE, { 
+      type: TOGGLE_SHAPE_DROPDOWN_VISIBILITY 
+    });
+    expect(newState.get('shapeDropdownIsVisible')).to.be.true;
+
+    const newerState = reducer(newState, {
+      type: TOGGLE_SHAPE_DROPDOWN_VISIBILITY
+    });
+    expect(newerState.get('shapeDropdownIsVisible')).to.be.false;
   });
 
   it('returns a new state with a quality update to a single shape', () => {
@@ -59,6 +66,7 @@ describe('reducer', () => {
 
     expect(newState.toJS()).to.eql({
       activeShape: 'all',
+      shapeDropdownIsVisible: false,
       shapes: {
         circle: {
           color: 'pink',
@@ -72,8 +80,7 @@ describe('reducer', () => {
           color: 'pink',
           sideLength: 20
         }
-      },
-      shapeMenuIsVisible: false
+      }
     });
   });
 
@@ -85,6 +92,7 @@ describe('reducer', () => {
 
     expect(newState.toJS()).to.eql({
       activeShape: 'all',
+      shapeDropdownIsVisible: false,
       shapes: {
         circle: {
           color: 'blue',
@@ -98,8 +106,7 @@ describe('reducer', () => {
           color: 'red',
           sideLength: 80
         }
-      },
-      shapeMenuIsVisible: false
+      }
     });
   });
 });

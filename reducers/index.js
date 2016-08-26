@@ -1,5 +1,5 @@
 import { 
-  TOGGLE_SHAPE_MENU_VISIBILITY,
+  TOGGLE_SHAPE_DROPDOWN_VISIBILITY,
   SET_ACTIVE_SHAPE,
   UPDATE_SHAPE, 
   UPDATE_ALL_SHAPES 
@@ -16,8 +16,9 @@ export default function reducer(state = INITIAL_STATE, action = {}) {
   }
 
   switch (action.type) {
-    case TOGGLE_SHAPE_MENU_VISIBILITY:
-      return state.set('shapeMenuIsVisible', true);
+    case TOGGLE_SHAPE_DROPDOWN_VISIBILITY:
+      let isVisible = !state.get('shapeDropdownIsVisible');
+      return state.set('shapeDropdownIsVisible', isVisible);
     case SET_ACTIVE_SHAPE:
       return state.set('activeShape', action.shape);
     case UPDATE_SHAPE:

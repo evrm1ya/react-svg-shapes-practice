@@ -3,6 +3,7 @@ import setCommonPropsInImmutableMap from '../utils/setCommonPropsInImmutableMap'
 
 export const INITIAL_STATE = Map({
   activeShape: 'all',
+  shapeDropdownIsVisible: false,
   shapes: Map({
     circle: Map({
       color: 'blue',
