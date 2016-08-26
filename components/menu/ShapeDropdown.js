@@ -1,5 +1,6 @@
 import React from 'react';
 
+// could be used elsewhere there are events
 const shapeUpdateHandler = (fn) => (shape) => (event) => {
   return fn(shape);
 };
@@ -10,8 +11,13 @@ const ShapeDropdown = React.createClass({
   },
 
   handleNewShape: function(shape) {
-    let fn = this.props.setActiveShape;
-    return shapeUpdateHandler(fn)(shape);
+    let activeShapeHandler = this.props.setActiveShape;
+    let dropdownVisibilityHandler = this.props.handleDropdownVisibility;
+
+    return shapeUpdateHandler(() => {
+      dropdownVisibilityHandler();
+      return activeShapeHandler(shape);
+    })(shape);
   },
 
   render: function() {
