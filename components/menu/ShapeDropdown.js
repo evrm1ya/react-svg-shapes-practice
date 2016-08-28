@@ -21,48 +21,52 @@ const ShapeDropdown = React.createClass({
   },
 
   render: function() {
-    console.log('ShapeMenu render');
     return (
-      <div className='shape-menu'>
-        <div 
-          className={this.props.shapeDropdownIsVisible 
-            ? 'dropdown open' 
-            : 'dropdown'}
+      <div className={this.props.shapeDropdownIsVisible 
+          ? 'dropdown open' 
+          : 'dropdown'}
+        >
+        <button className="btn btn-primary dropdown-toggle" 
+          type="button"
+          onClick={this.handleDropdownVisibility}
           >
-          <button className="btn btn-primary dropdown-toggle" 
-            type="button"
-            onClick={this.handleDropdownVisibility}
-            >
-            {this.props.activeShape} 
-            <span className="caret"></span>
-          </button>
+          {this.props.activeShape} 
+          <span className="caret"></span>
+        </button>
 
-          <ul className="dropdown-menu">
-            <li>
-              <a href="#" onClick={this.handleNewShape('all')}>
-                All
-              </a>
-            </li>
+        <ul className="dropdown-menu">
+          <li>
+            <a href="javascript:void(0)" 
+              onClick={this.handleNewShape('all')}
+              >
+              All
+            </a>
+          </li>
 
-            <li>
-              <a href="#" onClick={this.handleNewShape('circle')}>
-                Circle
-              </a>
-            </li>
+          <li>
+            <a href="javascript:void(0)" 
+              onClick={this.handleNewShape('circle')}
+              >
+              Circle
+            </a>
+          </li>
 
-            <li>
-              <a href="#" onClick={this.handleNewShape('square')}>
-                Square
-              </a>
-            </li>
+          <li>
+            <a href="javascript:void(0)" 
+              onClick={this.handleNewShape('square')}
+              >
+              Square
+            </a>
+          </li>
 
-            <li>
-              <a href="#" onClick={this.handleNewShape('triangle')}>
-                Triangle
-              </a>
-            </li>
-          </ul>
-        </div>
+          <li>
+            <a href="javascript:void(0)" 
+              onClick={this.handleNewShape('triangle')}
+              >
+              Triangle
+            </a>
+          </li>
+        </ul>
       </div>
     );
   }

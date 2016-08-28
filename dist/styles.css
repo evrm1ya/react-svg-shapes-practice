@@ -1,12 +1,31 @@
+.shape-menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.shape-update-inputs {
+  display: flex;
+}
+
+.shape-update-inputs .input-group {
+  margin: 0 0 0 5px;
+}
+
+.btn-primary.dropdown-toggle {
+  width: 86px;
+}
+
+.btn-primary.dropdown-toggle .caret {
+  margin-left: 5px;
+}
+
 .shape-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px;
-}
-
-.update-all-shapes {
-  align-self: center;
 }
 
 .connected-shape-wrapper {

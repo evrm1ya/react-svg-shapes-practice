@@ -5,7 +5,7 @@ import {
   TOGGLE_SHAPE_DROPDOWN_VISIBILITY,
   setActiveShape
 } from '../actions';
-import ShapeDropdown from '../components/menu/ShapeDropdown';
+import ShapeMenu from '../components/menu/ShapeMenu';
 
 function mapStateToProps(state) {
   return {
@@ -23,5 +23,8 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShapeDropdown);
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(ShapeMenu);
 
