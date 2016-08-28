@@ -16,11 +16,11 @@ const ShapeUpdateInputs = React.createClass({
 
         <div className='input-group'>
           <span className='input-group-addon'>
-            Dimension
+            {this.props.dimensionInputLabel}
           </span>
           <input type='text' className='form-control' />
           <span className='input-group-addon'>
-            Unit 
+            px
           </span>
         </div>
       </div>
@@ -29,3 +29,4 @@ const ShapeUpdateInputs = React.createClass({
 });
 
 export default ShapeUpdateInputs;
+

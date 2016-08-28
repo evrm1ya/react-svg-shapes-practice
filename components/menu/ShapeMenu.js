@@ -7,7 +7,7 @@ const ShapeMenu = React.createClass({
     return (
       <div className='shape-menu'>
         <ShapeDropdown {...this.props} />
-        <ShapeUpdateInputs />
+        <ShapeUpdateInputs {...this.props} />
       </div>
     );
   }

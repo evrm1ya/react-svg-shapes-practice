@@ -7,9 +7,23 @@ import {
 } from '../actions';
 import ShapeMenu from '../components/menu/ShapeMenu';
 
+function determineDimensionInputLabel(activeShape) {
+  switch (activeShape) {
+    case 'all':
+      return 'Dimension';
+    case 'circle': 
+      return 'Diameter';
+    default:
+      return 'Side Length';
+  }
+}
+
 function mapStateToProps(state) {
+  let activeShape = state.get('activeShape');
+
   return {
-    activeShape: state.get('activeShape'),
+    activeShape,
+    dimensionInputLabel: determineDimensionInputLabel(activeShape),
     shapeDropdownIsVisible: state.get('shapeDropdownIsVisible')
   };
 }
