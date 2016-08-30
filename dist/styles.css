@@ -29,6 +29,7 @@
 }
 
 .connected-shape-wrapper {
+  border: 1px solid #f0f0f0;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

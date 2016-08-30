@@ -7,15 +7,15 @@ export const INITIAL_STATE = Map({
   shapes: Map({
     circle: Map({
       color: 'blue',
-      diameter: 20
+      diameter: 50
     }),
     square: Map({
       color: 'yellow',
-      sideLength: 20
+      sideLength: 50
     }),
     triangle: Map({
       color: 'red',
-      sideLength: 20
+      sideLength: 50
     })
   })
 });

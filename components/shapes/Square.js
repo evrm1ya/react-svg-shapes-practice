@@ -3,7 +3,6 @@ import SVG from '../svg/svg';
 import { topLeftCornerOfCenteredSquare } from '../../utils/square-helpers';
 
 const Square = (props) => {
-  console.log('render Square');
   const topLeftCorner = topLeftCornerOfCenteredSquare(200, props.sideLength);
 
   return (
