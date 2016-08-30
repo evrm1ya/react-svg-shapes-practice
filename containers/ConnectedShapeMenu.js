@@ -30,14 +30,47 @@ function mapStateToProps(state) {
   };
 }
 
+const handleColorChange = dispatch => shape => event => {
+  let value = event.target.value;
+
+  if (value.length !== 3 && value.length !== 6) {
+    return;
+  }
+
+  value = '#' + value;
+
+  if (shape === 'all') {
+    dispatch(updateAllShapes({ quality: 'color', value }));
+  }
+
+  dispatch(updateShape({ quality: 'color', shape, value }));
+};
+
+const handleDimensionChange = dispatch => shape => event => {
+  let value = Number(event.target.value);
+
+  if (value <= 0 || isNaN(value)) {
+    return;
+  }
+
+  switch (shape) {
+    case 'all':
+      return dispatch(updateAllShapes({ quality: 'dimension', value }));
+    case 'circle':
+      return dispatch(updateShape({ quality: 'diameter', shape, value }));
+    default:
+      return dispatch(updateShape({ quality: 'sideLength', shape, value }));
+  }
+};
+
 function mapDispatchToProps(dispatch) {
   return {
+    handleColorChange: handleColorChange(dispatch),
+    handleDimensionChange: handleDimensionChange(dispatch),
     handleDropdownVisibility: () => {
       dispatch({ type: TOGGLE_SHAPE_DROPDOWN_VISIBILITY });
     },
-    setActiveShape: bindActionCreators(setActiveShape, dispatch),
-    updateAllShapes: bindActionCreators(updateAllShapes, dispatch),
-    updateShape: bindActionCreators(updateShape, dispatch)
+    setActiveShape: bindActionCreators(setActiveShape, dispatch)
   };
 }
 
