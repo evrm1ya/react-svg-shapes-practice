@@ -3,7 +3,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { 
   TOGGLE_SHAPE_DROPDOWN_VISIBILITY,
-  setActiveShape
+  setActiveShape,
+  updateShape,
+  updateAllShapes
 } from '../actions';
 import ShapeMenu from '../components/menu/ShapeMenu';
 
@@ -33,7 +35,9 @@ function mapDispatchToProps(dispatch) {
     handleDropdownVisibility: () => {
       dispatch({ type: TOGGLE_SHAPE_DROPDOWN_VISIBILITY });
     },
-    setActiveShape: bindActionCreators(setActiveShape, dispatch)
+    setActiveShape: bindActionCreators(setActiveShape, dispatch),
+    updateAllShapes: bindActionCreators(updateAllShapes, dispatch),
+    updateShape: bindActionCreators(updateShape, dispatch)
   };
 }
 
