@@ -7,7 +7,7 @@ var express = require('express');
 var app = express();
 var port = 3000;
 
-app.use(express.static('dist'));
+app.use(express.static('public'));
 
 var compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, {
